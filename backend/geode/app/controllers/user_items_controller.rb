@@ -18,23 +18,23 @@ class UserItemsController < ApplicationController
       render json: @user_item
     else
       render json: {error: "can not save this many items"}
-    end 
+    end
   end
 
 
 
 
 
-  #users/:id PATCH
-  def update
-    @user_item = UserItem.find(params[:id])
-    @user_item.update(user_item_params)
-    render json: @user_item
-  end
+  # #users/:id PATCH
+  # def update
+  #   @user_item = UserItem.find(params[:id])
+  #   @user_item.update(user_item_params)
+  #   render json: @user_item
+  # end
 
   # /users/:id DELETE
   def destroy
-    @user_item = UserItem.find(params[:id])
+    @user_item = UserItem.find_by(item_id: params[:id])
     @user_item.destroy
     render json: {message: "Deleted!"}
   end
