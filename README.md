@@ -25,38 +25,20 @@ Building out each feature you want for your application will be challenging, but
 [This repository](https://github.com/learn-co-curriculum/mod3-project-week-setup-example) goes through the first few steps of setting up an example project for both the frontend and backend applications. **Please spend some time looking through this before getting started**. If your question (ex: "How do i set up the `rack-cors` gem?") can be answered by reading this repository, you will be directed there.
 
 
-USERS have_many :items
-ITEMS have_many :users
 
-*CORE FUNCTIONALITY*
-  - In some kind of environment
-  - Click on different areas until you can find a geode, they are hidden **JAVASCRIPT**
-  - Open the geode by clicking on it to see whats inside, the geode ITEMS are then assigned to the USER and stored in their "pouch" or whatever **CREATE**
-          - The geode ITEMS are random but there are some that are more rare than others
-          - USER can take items out of their pouch and do funny/cute things with them (like as dumb as a dog sticking his tongue out or something)  **READ**    
-  - USER can send their ITEMS to other users, items will then pop up in their "pouch" **EDIT**
-  - USER can delete their ITEMS if they don't like an item or if they have  multiples of the same items  **DELETE**
+
+*THURSDAY GOALS*
+- Solve formatting errors
+- Add a way to delete items
+- Prevent user from adding more than a certain number of items to pouch
+- User can click on the items in their pouch and they can do cute things, bark etc **READ**
+- Seed API with more items
 
 *REACH GOALS*
-- USER can package up their items into a geode before they are sent to another user, so that the user can open it  **EDIT**
-- when a geode is found it is spit out to the center of the screen: https://www.w3schools.com/howto/howto_js_animate.asp **JAVASCRIPT**
-- Alert when a user receives  a new item from someone else
-
-
-
-*STEPS FOR CORE*
-  BACKEND
-  - Set up backend to have Users and Items
-  - Seed some items (unassigned to USERs) to start out with
-  FRONT END
-  - Set up environment to search for geodes
-    - CSS: Create Background image
-    - HTML/CSS: Create Hidden DIVs around the image with events assigned to them, triggered on click
-    - JS: When DIV's are clicked an event is triggered and a Geode pops out
-  - Set up method to find random ITEMS from the API
-    - JS: Click on geode to crack open and find the random items inside
-  - Set up method to assign random items to the USER on the API, items are assigned on breaking the geode click **CREATE**
-  - Set up method to display the user's pouch of all the items that they have found **READ**
-  - User can click on the items in their pouch and they can do cute things **READ**
+- Adding multiple users and login
   - Set up method to reassign the items to a different user thus sending them to another User's pouch **EDIT**
-  - Set up method to delete items **DELETE**
+  - USER can package up their items into a geode before they are sent to another user, so that the user can open it  **EDIT**
+  - Alert when a user receives  a new item from someone else-
+- when a geode is found it is spit out to the center of the screen: https://www.w3schools.com/howto/howto_js_animate.asp
+- The geode ITEMS are random but there are some that are more rare than others
+- DRAG AND DROP Set up method to delete items **DELETE**
