@@ -44,7 +44,7 @@ class App {
 //-------------------------- HIDDEN GEODES -----------------------------------//
   renderhiddenGeodeDivs(){
     let divID = 1
-    Array(5).fill().map(Math.random).forEach(result => {
+    Array(20).fill().map(Math.random).forEach(result => {
       let hiddenGeodeDiv = document.createElement("div");
       hiddenGeodeDiv.className = "hidden-geode"
       hiddenGeodeDiv.id = `hidden-geode-${divID}`
@@ -82,21 +82,11 @@ class App {
 
     this.sparkles.innerHTML = `<style> #sparkles {background-image: url("images/sparkles.png");} </style>`
 
-    this.sparkles.innerHTML += `<div class="row clearfix">
-
-                                <div class="span_4 column" id="${randomItem1.id}">
-                                    <img class="found-item" src="${randomItem1.img}" height="200">
-                                </div>
-
-                                <div class="span_4 column" id="${randomItem2.id}">
-                                    <img class="found-item" src="${randomItem2.img}" height="200">
-                                </div>
-
-                                <div class="span_4 column" id="${randomItem3.id}">
-                                    <img class="found-item" src="${randomItem3.img}" height="200">
-                                </div>
-
-                              </div>`
+    this.sparkles.innerHTML +=  `<div class="row clearfix">
+    <div class="span_4 column" id="${randomItem1.id}"><img class="found-item" src="${randomItem1.img}" height="200"></div>
+    <div class="span_4 column" id="${randomItem2.id}"><img class="found-item" src="${randomItem2.img}" height="200"></div>
+    <div class="span_4 column" id="${randomItem3.id}"><img class="found-item" src="${randomItem3.img}" height="200"></div>
+    </div>`
 
     let items = document.getElementsByClassName("span_4 column")
     for (let i = 0; i < items.length; i++) {
@@ -125,10 +115,24 @@ class App {
   };
 
   canAddItem(json, event){
+    let clearfix = document.getElementsByClassName("clearfix")
+    let counter = 0
+    for (let i = 0; i < clearfix[0].children.length; i++){
+      if (clearfix[0].children[i].innerHTML === ""){
+        counter++;
+      }
+    }
+
+
     if (json.error === undefined) {
       this.fetchUserItems()
+      clearfix[0].children[1].innerHTML
       event.target.remove()
     };
+
+    if(json.error === undefined && counter === 2) {
+      this.sparkles.innerHTML = ""
+    }
   }
 
 }

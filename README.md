@@ -28,17 +28,15 @@ Building out each feature you want for your application will be challenging, but
 
 
 *THURSDAY GOALS*
-- Solve formatting errors
-- Add a way to delete items
-- Prevent user from adding more than a certain number of items to pouch
 - User can click on the items in their pouch and they can do cute things, bark etc **READ**
-- Seed API with more items
+- Seed API with more items, some are more random than others, add multiples of the same items with different id numbers
+- Add more geodes
+
 
 *REACH GOALS*
+- when a geode is found it is spit out to the center of the screen: https://www.w3schools.com/howto/howto_js_animate.asp
+- DRAG AND DROP Set up method to delete items **DELETE**
 - Adding multiple users and login
   - Set up method to reassign the items to a different user thus sending them to another User's pouch **EDIT**
   - USER can package up their items into a geode before they are sent to another user, so that the user can open it  **EDIT**
   - Alert when a user receives  a new item from someone else-
-- when a geode is found it is spit out to the center of the screen: https://www.w3schools.com/howto/howto_js_animate.asp
-- The geode ITEMS are random but there are some that are more rare than others
-- DRAG AND DROP Set up method to delete items **DELETE**
