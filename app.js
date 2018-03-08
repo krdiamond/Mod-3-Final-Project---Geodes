@@ -1,6 +1,7 @@
 class App {
   constructor() {
     this.mainPage = document.getElementsByTagName("body");
+    this.sparkles = document.getElementById("sparkles")
     this.pouch = document.getElementById("pouch");
   }
 
@@ -16,11 +17,29 @@ class App {
     json.items.forEach(result => {
       let userItems = document.createElement("div");
       userItems.innerHTML = ""
+      userItems.id = result.id
       userItems.innerHTML = `<img src="${result.img}" height="100">`
+      userItems.innerHTML += `<button class="delete-button" onclick="app.deleteButton(event)">X</button>`
       userItems.className = "user-items"
       this.pouch.appendChild(userItems);
     });
   }
+
+  deleteButton(event){
+    let id = event.target.parentElement.id
+    let options = {
+      method:'DELETE',
+      headers: {
+        'Content-Type':'application/json',
+        Accept:'application/json'
+      },
+    }
+    fetch(`http://localhost:3000/user_items/${id}`, options)
+      .then(res => res.json())
+      .then(json => this.fetchUserItems());
+  };
+
+
 
 //-------------------------- HIDDEN GEODES -----------------------------------//
   renderhiddenGeodeDivs(){
@@ -40,10 +59,9 @@ class App {
 
 
         geodeImage.addEventListener("click", event => {
-          this.fetchItems()
           this.mainPage[0].removeChild(hiddenGeodeDiv)
-          this.mainPage[0].children[7].innerHTML = ""
-          this.mainPage[0].children[7].id = "" //this has something to do with why the box is jumping around. this should be fixed
+          this.sparkles.innerHTML = ""
+          this.fetchRandomItems()
         });
       });
     });
@@ -51,7 +69,7 @@ class App {
 
   //---------------------GIVE 2 RANDOM ITEMS TO USER--------------------------//
 
-  fetchItems(){
+  fetchRandomItems(){
     fetch("http://localhost:3000/items")
     .then(res => res.json())
     .then(json => this.randomizeItems(json));
@@ -62,33 +80,35 @@ class App {
     let randomItem2 = json[Math.floor(Math.random()*json.length)];
     let randomItem3 = json[Math.floor(Math.random()*json.length)];
 
-    let sparklesDiv = document.createElement("div");
-    sparklesDiv.id = "sparkles"
-    sparklesDiv.innerHTML = `<div class="row clearfix">
+    this.sparkles.innerHTML = `<style> #sparkles {background-image: url("images/sparkles.png");} </style>`
+
+    this.sparkles.innerHTML += `<div class="row clearfix">
+
                                 <div class="span_4 column" id="${randomItem1.id}">
                                     <img class="found-item" src="${randomItem1.img}" height="200">
                                 </div>
+
                                 <div class="span_4 column" id="${randomItem2.id}">
                                     <img class="found-item" src="${randomItem2.img}" height="200">
                                 </div>
+
                                 <div class="span_4 column" id="${randomItem3.id}">
                                     <img class="found-item" src="${randomItem3.img}" height="200">
                                 </div>
-                              </div>`
-    this.mainPage[0].appendChild(sparklesDiv);
 
-    let item = document.getElementsByClassName("span_4 column")
-    for (let i = 0; i < item.length; i++) {
-      item[i].addEventListener("click", event => {
-        this.addItemToPouch({user_id:1, item_id: item[[i]].id})
-        let selectedItem = document.getElementById(item[i].id)
-        selectedItem.innerHTML = ""
+                              </div>`
+
+    let items = document.getElementsByClassName("span_4 column")
+    for (let i = 0; i < items.length; i++) {
+      items[i].addEventListener("click", event => {
+        this.addItemToPouch({user_id:1, item_id: items[[i]].id}, event)
       });
     };
   }
 
-  addItemToPouch(itemInputs){
-    console.log(itemInputs)
+
+//------------------------ADD NEW ITEMS TO POUCH------------------------------//
+  addItemToPouch(itemInputs, event){
     let itemObj = {user_items: itemInputs}
 
     let options = {
@@ -101,7 +121,14 @@ class App {
     }
     fetch('http://localhost:3000/user_items', options)
       .then(res => res.json())
-      .then(json => this.fetchUserItems());
+      .then(json => this.canAddItem(json, event));
   };
+
+  canAddItem(json, event){
+    if (json.error === undefined) {
+      this.fetchUserItems()
+      event.target.remove()
+    };
+  }
 
 }

@@ -4,7 +4,19 @@ body{
     background-repeat: no-repeat;
     background-size: 1690px;
     width: 1600px;
-    height: 850px;
+    height: 910px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    top: 0px;
 }
 
 .hidden-geode{
@@ -23,10 +35,15 @@ body{
 
 #pouch{
   position: absolute;
+  min-width:138.531px;
+  min-height: 120px;
   background: white;
   padding: 10px;
   border-style: solid;
   border-width: 5px;
+  left: 10px;
+  top: 10px;
+
 }
 
 #hidden-geode-1{
@@ -54,14 +71,12 @@ body{
   top: 500px;
 }
 
-
-
 #sparkles{
   position: relative;
-  background-image: url("images/sparkles.png");
   padding: 0px;
-  top: 200px;
-  margin: auto;
+  top: 250px;
+  left: 550px;
+  /* margin: auto; */
   height:300px;
   width: 600px;
 }
