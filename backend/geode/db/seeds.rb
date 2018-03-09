@@ -8,8 +8,50 @@
 
 kristina = User.create(username: "Kristina")
 
-item1 = Item.create(name:"Purple Crystal", img:"backend/geode/images/purple_crystal.png")
-item2 = Item.create(name:"Ice Pop", img:"backend/geode/images/pink_ice_pop.png")
-item3 = Item.create(name:"Puppy", img:"backend/geode/images/puppy.png")
+Item.create(name:"Alien", img:"backend/geode/images/alien.png")
 
-join1 = UserItem.create(user_id:1, item_id:1)
+Item.create(name:"California Raison", img:"backend/geode/images/california_raison.png")
+
+Item.create(name:"Capri Sun", img:"backend/geode/images/capri_sun.png")
+
+Item.create(name:"charlie_brown", img:"backend/geode/images/charlie_brown.png")
+
+Item.create(name:"Cockroach", img:"backend/geode/images/cockroach.png")
+
+Item.create(name:"Comic Book Guy", img:"backend/geode/images/comic_book_guy.png")
+
+Item.create(name:"Forest Gump", img:"backend/geode/images/forest_gump.png")
+
+Item.create(name:"Money", img:"backend/geode/images/money.png")
+
+Item.create(name:"Mr Rush", img:"backend/geode/images/mr_rush.png")
+
+Item.create(name:"Mrs Piggy", img:"backend/geode/images/mrs_piggy.png")
+
+Item.create(name:"Money", img:"backend/geode/images/money.png")
+
+Item.create(name:"Grimace", img:"backend/geode/images/grimace.png")
+
+Item.create(name:"Onion", img:"backend/geode/images/onion.png")
+
+Item.create(name:"Ice Pop", img:"backend/geode/images/ice_pop.png")
+
+Item.create(name:"pepto", img:"backend/geode/images/pepto.png")
+
+Item.create(name:"Pizza", img:"backend/geode/images/pizza.png")
+
+Item.create(name:"Plant", img:"backend/geode/images/plant.png")
+
+Item.create(name:"Puppy", img:"backend/geode/images/puppy.png")
+
+Item.create(name:"Purple Crystal", img:"backend/geode/images/purple_crystal.png")
+
+Item.create(name:"Ranch", img:"backend/geode/images/ranch.png")
+
+Item.create(name:"Side Kick", img:"backend/geode/images/sidekick.png")
+
+Item.create(name:"Skull", img:"backend/geode/images/skull.png")
+
+Item.create(name:"Spinner", img:"backend/geode/images/spinner.png")
+
+Item.create(name:"Uno", img:"backend/geode/images/uno.png")
